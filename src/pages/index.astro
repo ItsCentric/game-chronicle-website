@@ -1,24 +1,192 @@
 ---
-// Component Imports
-import Counter from '../components/Counter.svelte';
 import "$lib/styles/app.css";
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+import { Image } from "astro:assets";
+import dashboardImage from "$lib/images/gc-dashboard.jpg";
+import { Input } from "$lib/components/ui/input";
+import { Button } from "$lib/components/ui/button";
+import { Badge } from "$lib/components/ui/badge";
+import { Rocket } from "lucide-svelte";
+import Layout from "$lib/layouts/Layout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-	</head>
-	<body class='dark'>
-		<main>
-			<Counter client:visible>
-				<h1>Hello, Svelte!</h1>
-			</Counter>
-		</main>
-	</body>
-</html>
+<Layout title="Game Chronicle">
+  <main class="h-full relative bg-gradient-to-l from-background to-[#151221]">
+    <ul
+      class="absolute shapes top-0 left-0 w-full h-full overflow-hidden pointer-events-none"
+    >
+      <li
+        class="absolute block bg-white/5 animate-[shapes_25s_linear_infinite] -bottom-36"
+      >
+      </li>
+      <li
+        class="absolute block w-5 h-5 bg-white/5 animate-[shapes_25s_linear_infinite] -bottom-36"
+      >
+      </li>
+      <li
+        class="absolute block w-5 h-5 bg-white/5 animate-[shapes_25s_linear_infinite] -bottom-36"
+      >
+      </li>
+      <li
+        class="absolute block w-5 h-5 bg-white/5 animate-[shapes_25s_linear_infinite] -bottom-36"
+      >
+      </li>
+      <li
+        class="absolute block w-5 h-5 bg-white/5 animate-[shapes_25s_linear_infinite] -bottom-36"
+      >
+      </li>
+      <li
+        class="absolute block w-5 h-5 bg-white/5 animate-[shapes_25s_linear_infinite] -bottom-36"
+      >
+      </li>
+      <li
+        class="absolute block w-5 h-5 bg-white/5 animate-[shapes_25s_linear_infinite] -bottom-36"
+      >
+      </li>
+      <li
+        class="absolute block w-5 h-5 bg-white/5 animate-[shapes_25s_linear_infinite] -bottom-36"
+      >
+      </li>
+      <li
+        class="absolute block w-5 h-5 bg-white/5 animate-[shapes_25s_linear_infinite] -bottom-36"
+      >
+      </li>
+      <li
+        class="absolute block w-5 h-5 bg-white/5 animate-[shapes_25s_linear_infinite] -bottom-36"
+      >
+      </li>
+    </ul>
+    <div
+      class="flex-col pt-16 lg:flex-row flex container items-center h-full gap-32"
+    >
+      <div class="flex flex-col lg:flex-grow">
+        <h1
+          class="text-3xl lg:text-4xl leading-tight mb-4 font-heading font-bold"
+        >
+          Record your journey
+        </h1>
+        <p class="text-lg lg:text-xl mb-8">
+          Game Chronicle is an application for users to keep track of their
+          gaming journey.
+        </p>
+        <form
+          action="https://gmail.us17.list-manage.com/subscribe/post"
+          class="flex gap-2 mb-4"
+        >
+          <input type="hidden" name="u" value="192cefd7630b0baf222aeaaf2" />
+          <input type="hidden" name="id" value="e9549b503f" />
+          <Input
+            name="MERGE0"
+            id="MERGE0"
+            type="email"
+            placeholder="Enter your awesome email"
+            class="max-w-xs"
+          />
+          <Button type="submit">Get updates</Button>
+        </form>
+        <Badge class="w-fit flex gap-1 items-center hover:bg-primary">
+          <Rocket />
+          <p>Coming soon</p>
+        </Badge>
+      </div>
+      <div class="relative lg:grow">
+        <Image
+          src={dashboardImage}
+          alt=""
+          class="aspect-video rounded-lg"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .shapes li:nth-child(1) {
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+  }
+
+  .shapes li:nth-child(2) {
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+  }
+
+  .shapes li:nth-child(3) {
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+  }
+
+  .shapes li:nth-child(4) {
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+  }
+
+  .shapes li:nth-child(5) {
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+  }
+
+  .shapes li:nth-child(6) {
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+  }
+
+  .shapes li:nth-child(7) {
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+  }
+
+  .shapes li:nth-child(8) {
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+  }
+
+  .shapes li:nth-child(9) {
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+  }
+
+  .shapes li:nth-child(10) {
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+  }
+
+  @keyframes shapes {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+      border-radius: 0;
+    }
+
+    100% {
+      transform: translateY(-1000px) rotate(720deg);
+      opacity: 0;
+      border-radius: 50%;
+    }
+  }
+</style>
