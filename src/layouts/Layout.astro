@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import logo from "$lib/images/gc-logo.png";
 import { Button } from "$lib/components/ui/button";
 import { Download } from "lucide-svelte";
+import PostHog from "../components/posthog.astro";
 ---
 
 <html lang="en" class="h-full">
@@ -16,6 +17,7 @@ import { Download } from "lucide-svelte";
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <title>{title}</title>
+    <PostHog />
   </head>
   <body
     class="dark h-full relative bg-gradient-to-l from-background to-[#151221]"
