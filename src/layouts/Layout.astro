@@ -8,36 +8,77 @@ import PostHog from "../components/posthog.astro";
 ---
 
 <html lang="en" class="h-full">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <title>{title}</title>
-    <PostHog />
-  </head>
-  <body
-    class="dark h-full relative bg-gradient-to-l from-background to-[#151221]"
-  >
-    <nav
-      class="border-b border-muted flex justify-between absolute top-0 z-50 px-8 py-4 left-0 w-full"
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <title>{title}</title>
+        <meta
+            name="description"
+            content="Game Chronicle is a simple gaming journal that allows you to seamlessly track your gaming sessions with features such as automatic game detection."
+        />
+        <meta property="og:url" content="https://www.gamechronicle.app" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Game Chronicle" />
+        <meta
+            property="og:description"
+            content="Game Chronicle is a simple gaming journal that allows you to seamlessly track your gaming sessions with features such as automatic game detection."
+        />
+        <meta
+            property="og:image"
+            content="https://www.gamechronicle.app/gc-og-image.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="gamechronicle.app" />
+        <meta property="twitter:url" content="https://www.gamechronicle.app" />
+        <meta name="twitter:title" content="Game Chronicle" />
+        <meta
+            name="twitter:description"
+            content="Game Chronicle is a simple gaming journal that allows you to seamlessly track your gaming sessions with features such as automatic game detection."
+        />
+        <meta
+            name="twitter:image"
+            content="https://www.gamechronicle.app/gc-og-image.png"
+        />
+        <PostHog />
+    </head>
+    <body
+        class="dark h-full relative bg-gradient-to-l from-background to-[#151221]"
     >
-      <div class="flex items-center gap-8">
-        <Image src={logo} alt="logo" class="aspect-square w-8" />
-        <div class="flex gap-4">
-          <a href="/" class="hover:text-accent">Home</a>
-        </div>
-      </div>
-      <div class="flex gap-2">
-        <Button href="/download">
-          <Download size="1.8em" class="mr-2" />
-          Download
-        </Button>
-      </div>
-    </nav>
-    <slot />
-  </body>
+        <nav
+            class="border-b border-muted flex justify-between absolute top-0 z-50 px-8 py-4 left-0 w-full"
+        >
+            <div class="flex items-center gap-8">
+                <Image src={logo} alt="logo" class="aspect-square w-8" />
+                <div class="flex gap-4">
+                    <a href="/" class="hover:text-accent">Home</a>
+                </div>
+            </div>
+            <div class="flex gap-2">
+                <Button href="/download">
+                    <Download size="1.8em" class="mr-2" />
+                    Download
+                </Button>
+            </div>
+        </nav>
+        <slot />
+    </body>
 </html>
