@@ -12,6 +12,7 @@ const latestVersion = (await response.json()).version;
 ---
 
 <script>
+  // @ts-nocheck
   let latestVersion =
     document.getElementById("page-container")?.dataset.latestversion;
   let windowsDownloadButton = document.getElementById("download-windows");
