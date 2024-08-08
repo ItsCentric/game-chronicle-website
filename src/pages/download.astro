@@ -16,9 +16,51 @@ const downloadLinkMap = {
 };
 ---
 
+<script>
+  let latestVersion =
+    document.getElementById("page-container")?.dataset.latestversion;
+  let windowsDownloadButton = document.getElementById("download-windows");
+  let macDownloadButton = document.getElementById("download-mac");
+  let linuxDownloadButton = document.getElementById("download-linux");
+  windowsDownloadButton?.addEventListener("click", () => {
+    window.posthog.capture("User downloaded app", {
+      platform: "windows",
+      app_version: `${latestVersion}`,
+    });
+  });
+  macDownloadButton?.addEventListener("click", async () => {
+    await new Promise((resolve) => {
+      setTimeout(resolve, 500);
+    });
+    let options = document.querySelectorAll("[data-melt-dropdown-menu-item]");
+    for (let i = 0; i < options.length; i++) {
+      options[i].addEventListener("click", () => {
+        window.posthog.capture("User downloaded app", {
+          platform: "mac",
+          app_version: `${latestVersion}`,
+        });
+      });
+    }
+  });
+  linuxDownloadButton?.addEventListener("click", () => {
+    window.posthog.capture("User downloaded app", {
+      platform: "linux",
+      app_version: `${latestVersion}`,
+    });
+  });
+</script>
+
 <Layout title="Download Game Chronicle">
   <div
-    class="container flex flex-col gap-12 items-center h-full justify-center"
+    id="page-container"
+    class="container
+        flex
+        flex-col
+        gap-12
+        items-center
+        h-full
+        justify-center"
+    data-latestVersion={latestVersion}
   >
     <div class="flex flex-col items-center">
       <h1 class="text-3xl font-bold font-heading">Download Game Chronicle</h1>
@@ -34,9 +76,10 @@ const downloadLinkMap = {
         <p slot="title">Windows</p>
         <p slot="description">Download for Windows 64-bit</p>
         <Button
+          id="download-windows"
           href={`https://www.github.com/game-chronicle/game-chronicle-app/releases/latest/download/Game.Chronicle_${latestVersion}_x64-setup.exe`}
           slot="content"
-          class="w-full"
+          class="w-full ph-no-capture"
         >
           <p>Download</p>
         </Button>
@@ -47,8 +90,9 @@ const downloadLinkMap = {
           Download for Apple Silicon chip or Apple Intel chip
         </p>
         <ButtonDropdown
+          id="download-mac"
           client:load
-          class="w-full"
+          class="w-full ph-no-capture"
           slot="content"
           optionsMap={{
             "Apple Silicon": `https://www.github.com/game-chronicle/game-chronicle-app/releases/latest/download/Game.Chronicle_${latestVersion}_aarch64.dmg`,
@@ -64,9 +108,10 @@ const downloadLinkMap = {
         <p slot="title">Linux</p>
         <p slot="description">Download for all Linux distros</p>
         <Button
+          id="download-linux"
           href={`https://www.github.com/game-chronicle/game-chronicle-app/releases/latest/download/Game.Chronicle_${latestVersion}_amd64.deb`}
           slot="content"
-          class="w-full"
+          class="w-full ph-no-capture"
         >
           <p>Download</p>
         </Button>
